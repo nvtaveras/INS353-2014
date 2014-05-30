@@ -58,8 +58,20 @@ describe Order do
       expect @Order.filter_by_price(20.00, 110.99).length.should == 2
     end
 
-    it "can save your order to a file"
+    it "can save your order to a file" do
       # Save the order to a file, retrieve it and then compare with the previous
+      @Order.add_product('Macbook Air', 1200.00, :electronics)
+      @Order.save('myOrder.yml')
+      orders_loaded = Order.new('myOrder.yml').products
+
+      # Sizes should be equal
+      expect @Order.products.length.should == orders_loaded.length
+
+      # All products should be present in both orders
+      dif_count = 0
+      @Order.products.each { |p| dif_count += 1 if orders_loaded.any? { |pp| p.title == pp.title && p.price == pp.price && p.category == pp.category } }
+      expect dif_count == 0
+    end
   end
 
 
