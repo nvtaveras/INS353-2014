@@ -28,7 +28,10 @@ class Order
     @products.select { |p| p.title == title }.first
   end
 
-  def save
+  def save file_name
+    File.open file_name, 'w' do |f|
+      f.write YAML::dump products
+    end
   end
 
 end
