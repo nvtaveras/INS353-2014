@@ -16,7 +16,8 @@ class Order
     @products.select { |p| p.category == category }
   end
 
-  def filter_by_price
+  def filter_by_price low, high
+    @products.select { |p| p.price >= low && p.price <= high }
   end
 
   def add_product title, price, category
