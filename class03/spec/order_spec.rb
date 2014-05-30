@@ -3,33 +3,38 @@ require 'spec_helper.rb'
 describe Order do
 
   before :all do
-    # orders = [
-    #   Product.new("Mouse", 21.00, :electronics),
-    #   Product.new("Keyboard", 25.00, :electronics),
-    #   Product.new("Bed", 111.00, :home),
-    #   Product.new("Pen", 1.50, :office),
-    #   Product.new("Key", 4.20, :home),
-    #   Product.new("Printer", 121.00, :electronics)
-    # ]
-    # File.open "products.yml", 'w' do |f|
-    #   f.write YAML::dump orders
-    # end
+    orders = [
+      Product.new("Mouse", 21.00, :electronics),
+      Product.new("Keyboard", 25.00, :electronics),
+      Product.new("Bed", 111.00, :home),
+      Product.new("Pen", 1.50, :office),
+      Product.new("Key", 4.20, :home),
+      Product.new("Printer", 121.00, :electronics)
+    ]
+    File.open "products.yml", 'w' do |f|
+      f.write YAML::dump orders
+    end
   end
 
   before :each do
     # instantiate a new order while loading the products.yml file
+    @Order = Order.new('products.yml')
   end
 
   describe "When creating a new Order" do
 
     context "with no parameters" do
-      it "has no products"
+      it "has no products" do
         # A new order instantiated with no yml file should have 0 products
+        expect Order.new.products.length.should == 0
+      end
     end
 
     context "with a YAML file" do
-      it "has 6 products"
+      it "has 6 products" do
         # A new order instantiated with a yml file should have 6 products
+        expect @Order.products.length.should == 6
+      end
     end
 
   end
