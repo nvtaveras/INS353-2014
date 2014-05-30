@@ -1,0 +1,29 @@
+---
+- !ruby/object:Product
+  title: Mouse
+  price: 21.0
+  category: :electronics
+- !ruby/object:Product
+  title: Keyboard
+  price: 25.0
+  category: :electronics
+- !ruby/object:Product
+  title: Bed
+  price: 111.0
+  category: :home
+- !ruby/object:Product
+  title: Pen
+  price: 1.5
+  category: :office
+- !ruby/object:Product
+  title: Key
+  price: 4.2
+  category: :home
+- !ruby/object:Product
+  title: Printer
+  price: 121.0
+  category: :electronics
+- !ruby/object:Product
+  title: Macbook Air
+  price: 1200.0
+  category: :electronics
