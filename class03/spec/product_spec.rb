@@ -35,9 +35,13 @@ describe Product do
   end
 
   describe "#category" do
-    it "should return the product category"
+    it "should return the product category" do
+      expect @P.category.should == :electronics
+    end
 
-    it "should be a symbol"
+    it "should be a symbol" do
+      expect @P.category.class.should == Symbol
+    end
   end
 
 end
