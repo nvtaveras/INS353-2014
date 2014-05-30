@@ -19,10 +19,12 @@ class Order
   def filter_by_price
   end
 
-  def add_product
+  def add_product title, price, category
+    @products.push(Product.new(title, price, category))
   end
 
-  def get_product
+  def get_product title
+    @products.select { |p| p.title == title }.first
   end
 
   def save
