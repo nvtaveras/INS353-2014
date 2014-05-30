@@ -45,9 +45,14 @@ describe Order do
       # assertion for this method should be against the quantity of objects returned
       expect @Order.filter_by_category(:electronics).length.should == 3
     end
-    it "can add & retrieve new products "
+    it "can add & retrieve new products " do
       # assertion for this method should be agaist the instance class of the returned object we save.
+      @Order.add_product('Macbook Pro', 1599.99, :electronics)
+      expect @Order.products.any? { |p| p.title == 'Macbook Pro' }.should == true
 
+      @Order.add_product('Macbook Pro', 1600.00, :electronics)
+      expect @Order.get_product('Macbook Pro').price.should == 1599.99
+    end
     it "can get products by a price range"
       # assertion for this method should be against the quantity of objects returned
 
