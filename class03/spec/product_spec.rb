@@ -18,15 +18,20 @@ describe Product do
     it "should return the product title" do
       expect @P.title.should == 'Macbook Pro'
     end
+
     it "should be a string" do
       expect @P.title.class.should == String
     end
   end
 
   describe "#price" do
-    it "should return the product price"
+    it "should return the product price" do
+      expect @P.price.should == 1599.99
+    end
 
-    it "should be a float"
+    it "should be a float" do
+      expect @P.price.class.should == Float
+    end
   end
 
   describe "#category" do
