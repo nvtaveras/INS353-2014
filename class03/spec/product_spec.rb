@@ -18,7 +18,9 @@ describe Product do
     it "should return the product title" do
       expect @P.title.should == 'Macbook Pro'
     end
-    it "should be a string"
+    it "should be a string" do
+      expect @P.title.class.should == String
+    end
   end
 
   describe "#price" do
