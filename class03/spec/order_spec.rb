@@ -41,9 +41,10 @@ describe Order do
 
   describe "When working with orders" do
 
-    it "can filter products by category"
+    it "can filter products by category" do
       # assertion for this method should be against the quantity of objects returned
-
+      expect @Order.filter_by_category(:electronics).length.should == 3
+    end
     it "can add & retrieve new products "
       # assertion for this method should be agaist the instance class of the returned object we save.
 
