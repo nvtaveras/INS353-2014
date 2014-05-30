@@ -53,8 +53,10 @@ describe Order do
       @Order.add_product('Macbook Pro', 1600.00, :electronics)
       expect @Order.get_product('Macbook Pro').price.should == 1599.99
     end
-    it "can get products by a price range"
+    it "can get products by a price range" do
       # assertion for this method should be against the quantity of objects returned
+      expect @Order.filter_by_price(20.00, 110.99).length.should == 2
+    end
 
     it "can save your order to a file"
       # Save the order to a file, retrieve it and then compare with the previous
