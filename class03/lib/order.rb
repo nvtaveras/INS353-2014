@@ -12,7 +12,8 @@ class Order
     end
   end
 
-  def filter_by_category
+  def filter_by_category category
+    @products.select { |p| p.category == category }
   end
 
   def filter_by_price
