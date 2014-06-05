@@ -37,7 +37,7 @@ class User
         frequency[tag] += 1
       end
     end
-    frequency.sort_by { |_key, value| value }
+    frequency.sort_by { |_key, value| value }.reverse
   end
 
 end
