@@ -44,8 +44,14 @@ describe Post do
   end
 
   describe "#same?" do
-    it "should return true if Title, Date and Text are the same"
-    it "should return false if Title, Date and Text are not the same"
+    it "should return true if Title, Date and Text are the same" do
+      anotherpost = Post.new('My Blog Title', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae est eget ipsum tincidunt accumsan at eu mi tor.', Date.new(2014, 05, 06), User.new('awesome_user'))
+      expect @post.same?(anotherpost).should == true
+    end
+    it "should return false if Title, Date and Text are not the same" do
+     anotherpost = Post.new('Another Blog Title', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae est eget ipsum tincidunt accumsan at eu mi tor.', Date.new(2014, 05, 06), @user)
+     expect @post.same?(anotherpost).should == false
+   end
   end
 
   describe "#display_entry" do

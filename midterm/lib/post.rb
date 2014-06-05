@@ -30,4 +30,8 @@ class Post
     end
   end
 
+  def same? post
+    (@title == post.title) && (@text == post.text) && (@date == post.date)
+  end
+
 end
