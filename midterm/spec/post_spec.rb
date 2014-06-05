@@ -75,7 +75,11 @@ describe Post do
   end
 
   describe "#save" do
-    it "should save the post to a YAML file"
+    it "should save the post to a YAML file" do
+      @post.tagme(:midterm, :ruby, :rails, :fun)
+      @post.user.add_post('My Awesome Post', 'First Post!', Date.new(2014, 05, 06))
+      @post.save
+    end
   end
 
 end

@@ -44,4 +44,18 @@ class Post
     "#{@user.username}, #{@date}\n#{@title}\n#{@text}\n" + str
   end
 
+  def save
+    title_words = @title.split
+    title_parameterized = ""
+
+    for w in title_words
+      w = w.downcase
+      title_parameterized += "#{w}-"
+    end
+
+    File.open title_parameterized + 'yml', 'w' do |f|
+      f.write YAML::dump self
+    end
+  end
+
 end
