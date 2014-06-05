@@ -10,6 +10,7 @@ class Post
       @text = args[1]
       @date = args[2]
       @user = args[3]
+    end
   end
 
 end
