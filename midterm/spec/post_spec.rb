@@ -39,7 +39,7 @@ describe Post do
     it "should be able to tag with 4 tags" do
       @post.tagme(:midterm, :ruby, :rails, :fun)
       expect @post.tags.length.should == 4
-      expect @post.tags[2].should == :cool
+      expect @post.tags[2].should == :rails
     end
   end
 
