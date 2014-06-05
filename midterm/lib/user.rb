@@ -6,11 +6,11 @@ class User
 
   def initialize username
     @username = username
-    posts_list = []
+    @posts_list = []
   end
 
   def add_post title, text, date
-    posts_list.push(Post.new(title, text, date, self))
+    @posts_list.push(Post.new(title, text, date, self))
   end
 
 end
