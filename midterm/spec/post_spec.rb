@@ -10,7 +10,15 @@ describe Post do
   describe "#initialize" do
 
     context "with a yaml file" do
-      it "should properly load a post from a yaml file"
+      it "should properly load a post from a yaml file" do
+
+        new_post = Post.new('My awesome Title', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae est eget ipsum tincidunt accumsan at eu mi tor.', Date.new(2014, 05, 06), @user)
+        new_post.save
+
+        loaded_post = Post.new('my-awesome-title.yml')
+
+        expect new_post.same?(loaded_post).should == true
+      end
     end
 
     context "with proper attributes" do
@@ -79,6 +87,9 @@ describe Post do
       @post.tagme(:midterm, :ruby, :rails, :fun)
       @post.user.add_post('My Awesome Post', 'First Post!', Date.new(2014, 05, 06))
       @post.save
+
+      loaded_post = Post.new('my-blog-title.yml')
+      expect @post.same?(loaded_post).should == true
     end
   end
 
