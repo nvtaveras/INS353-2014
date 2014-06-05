@@ -21,4 +21,12 @@ class User
     @posts_list.select { |post| post.title == title }.first
   end
 
+  def list
+    str = ""
+    for p in @posts_list
+      str += @posts_list.display_entry
+    end
+    str
+  end
+
 end
