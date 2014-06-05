@@ -13,4 +13,8 @@ class User
     @posts_list.push(Post.new(title, text, date, self))
   end
 
+  def posts
+    @posts_list.sort_by { |post| post.date }.reverse
+  end
+
 end
