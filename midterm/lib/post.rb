@@ -5,6 +5,12 @@ class Post
   def initialize *args
     if args.length == 1
       # load from YAML file
+      content = YAML.load_file(args[0])
+      @title = content.title
+      @text = content.text
+      @date = content.date
+      @user = content.user
+      @tags = content.tags
     else
       @title = args[0]
       @text = args[1]
@@ -48,12 +54,15 @@ class Post
     title_words = @title.split
     title_parameterized = ""
 
-    for w in title_words
-      w = w.downcase
-      title_parameterized += "#{w}-"
+    limit = title_words.length - 1
+    for i in 0.. limit
+      title_parameterized += "-" if i > 0
+      w = title_words[i].downcase
+      title_parameterized += "#{w}"
     end
 
-    File.open title_parameterized + 'yml', 'w' do |f|
+    title.chop
+    File.open title_parameterized + '.yml', 'w' do |f|
       f.write YAML::dump self
     end
   end
