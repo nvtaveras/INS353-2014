@@ -1,6 +1,6 @@
 class Post
 
-  attr_accessor :title, :text, :date, :user
+  attr_accessor :title, :text, :date, :user, :tags
 
   def initialize *args
     if args.length == 1
@@ -10,6 +10,7 @@ class Post
       @text = args[1]
       @date = args[2]
       @user = args[3]
+      @tags = []
     end
   end
 
@@ -21,6 +22,12 @@ class Post
       str += "#{words[i]} "
     end
     str.chop
+  end
+
+  def tagme *args
+    for tag in args
+      tags.push(tag)
+    end
   end
 
 end

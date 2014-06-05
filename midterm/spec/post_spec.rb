@@ -31,8 +31,15 @@ describe Post do
   end
 
   describe "#tagme" do
-    it "should be able to tag with 1 tag"
-    it "should be able to tag with 4 tags"
+    it "should be able to tag with 1 tag" do
+      @post.tagme(:cool)
+      expect @post.tags.length.should == 1
+      expect @post.tags[0].should == :cool
+    end
+    it "should be able to tag with 4 tags" do
+      @post.tagme(:midterm, :ruby, :rails, :fun)
+      expect @post.tags.length.should == 4
+    end
   end
 
   describe "#same?" do
