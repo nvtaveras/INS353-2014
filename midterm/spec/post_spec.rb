@@ -25,7 +25,9 @@ describe Post do
 
   end
   describe "#summary" do
-    it "should display the first 10 words of text"
+    it "should display the first 10 words of text" do
+      expect @post.summary.should == 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae'
+    end
   end
 
   describe "#tagme" do

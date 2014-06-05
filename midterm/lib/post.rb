@@ -13,4 +13,14 @@ class Post
     end
   end
 
+  def summary
+    str = ""
+    words = @text.split
+    limit = words.length >= 10 ? 10 : words
+    for i in 0..limit - 1
+      str += "#{words[i]} "
+    end
+    str.chop
+  end
+
 end
