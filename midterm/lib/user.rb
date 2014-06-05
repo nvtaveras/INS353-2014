@@ -29,4 +29,15 @@ class User
     str
   end
 
+  def tag_cloud
+    frequency = Hash.new
+    for post in @posts_list
+      tags_list = post.tags
+      for tag in tags_list
+        frequency[tag] += 1
+      end
+    end
+    frequency.sort_by { |_key, value| value }
+  end
+
 end
