@@ -1,10 +1,10 @@
 class User
 
-  attr_accessor :username, :posts
+  attr_accessor :username, :posts_list
 
   def initialize username
     @username = username
-    posts = []
+    posts_list = []
   end
 
 end
