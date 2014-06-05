@@ -2,8 +2,14 @@ require 'spec_helper'
 
 describe User do
 
+  before :each do
+    @user = User.new('ntaveras')
+  end
+
   describe "#initialize" do
-    it "should properly initialize with an username"
+    it "should properly initialize with an username" do
+      expect @user.username.should == 'ntaveras'
+    end
   end
 
   describe "#add_post" do
