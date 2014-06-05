@@ -1,6 +1,12 @@
 require 'spec_helper'
 
 describe Post do
+
+  before :each do
+    @user = User.new('ntaveras')
+    @post = Post.new('My Blog Title', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae est eget ipsum tincidunt accumsan at eu mi tor.', Date.new(2014, 05, 06), @user)
+  end
+
   describe "#initialize" do
 
     context "with a yaml file" do
@@ -8,7 +14,12 @@ describe Post do
     end
 
     context "with proper attributes" do
-      it "should properly initialize a post instance"
+      it "should properly initialize a post instance" do
+        expect @post.title.should == 'My Blog Title'
+        expect @post.text.should == 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae est eget ipsum tincidunt accumsan at eu mi tor.'
+        expect @post.date.should == Date.new(2014, 05, 06)
+        expect @post.user.username.should == 'ntaveras'
+      end
     end
 
   end
