@@ -4,6 +4,8 @@ describe User do
 
   before :each do
     @user = User.new('ntaveras')
+    @user.add_post('My Awesome Post', 'First Post!', Date.new(2014, 05, 06))
+    @user.add_post('My Second Awesome Post', 'Second Post!', Date.new(2014, 05, 06))
   end
 
   describe "#initialize" do
@@ -13,7 +15,9 @@ describe User do
   end
 
   describe "#add_post" do
-    it "should add a post to the posts list"
+    it "should add a post to the posts list" do
+      expect @user.posts_list.length.should == 2
+    end
   end
 
   describe "#list" do
