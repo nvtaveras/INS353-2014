@@ -19,6 +19,7 @@ describe Post do
         expect @post.text.should == 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae est eget ipsum tincidunt accumsan at eu mi tor.'
         expect @post.date.should == Date.new(2014, 05, 06)
         expect @post.user.username.should == 'ntaveras'
+        expect @post.class.should == Post
       end
     end
 
