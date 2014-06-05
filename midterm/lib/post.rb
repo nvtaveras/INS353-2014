@@ -34,4 +34,14 @@ class Post
     (@title == post.title) && (@text == post.text) && (@date == post.date)
   end
 
+  def display_entry
+    str = "Tags: "
+    limit = @tags.length - 1
+    for i in 0.. limit
+      str += ", " if i > 0
+      str += ":#{@tags[i]}"
+    end
+    "#{@user.username}, #{@date}\n#{@title}\n#{@text}\n" + str
+  end
+
 end

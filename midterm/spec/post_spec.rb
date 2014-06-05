@@ -55,7 +55,23 @@ describe Post do
   end
 
   describe "#display_entry" do
-    it "should properly output a post entry"
+    it "should properly output a post entry" do
+      @test_blog = Post.new('My Blog Title', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae est eget ipsum tincidunt accumsan at eu mi tor.', Date.new(2013, 06, 06), User.new('Gabriel'))
+      @test_blog.tagme(:supercool, :awesome, :bonkers)
+
+      user_value = 'Gabriel'
+      date_value = '2013-06-06'
+      title_value = 'My Blog Title'
+      text_value = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae est eget ipsum tincidunt accumsan at eu mi tor.'
+      tags_value = 'Tags: :supercool, :awesome, :bonkers'
+
+      str_expected = "Gabriel, 2013-06-06"
+      str_expected += "\n#{title_value}"
+      str_expected += "\n#{text_value}"
+      str_expected += "\n#{tags_value}"
+
+      expect @test_blog.display_entry.should == str_expected
+    end
   end
 
   describe "#save" do
