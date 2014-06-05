@@ -35,8 +35,13 @@ describe User do
   end
 
   describe "#find_post_by_title" do
-    it "should return a post by title"
-    it "should return the first one if there are several with the same name"
+    it "should return a post by title" do
+      expect @user.find_post_by_title('My Awesome Post').text.should == 'First Post!'
+    end
+    it "should return the first one if there are several with the same name" do
+      @user.add_post('My Awesome Post', 'First Post Again!', Date.new(2014, 05, 02))
+      expect @user.find_post_by_title('My Awesome Post').text.should == 'First Post!'
+    end
   end
 
 end

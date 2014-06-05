@@ -17,4 +17,8 @@ class User
     @posts_list.sort_by { |post| post.date }.reverse
   end
 
+  def find_post_by_title title
+    @posts_list.select { |post| post.title == title }.first
+  end
+
 end
